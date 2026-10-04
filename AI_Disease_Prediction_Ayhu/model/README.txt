@@ -1,0 +1,1 @@
+The current prototype keeps its transparent symptom-overlap model in app.py. For a research-grade version, replace this with a properly validated ML model trained on an appropriate clinical dataset and evaluated by qualified experts.

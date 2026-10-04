@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Symptoms | Ayhu{% endblock %}
+{% block content %}
+<section class="page-head">
+    <div class="eyebrow">PAGE 02</div>
+    <h1>Tell us your <span>symptoms</span></h1>
+    <p>Enter the main symptoms and let the system calculate a possible result for this educational demo.</p>
+</section>
+
+<form class="symptom-form" action="{{ url_for('predict') }}" method="POST">
+    <div class="input-grid">
+        <label>
+            <span>Major symptom</span>
+            <input name="major_symptom" list="symptom-list" placeholder="e.g. fever">
+        </label>
+        <label>
+            <span>Symptom 2</span>
+            <input name="symptom_2" list="symptom-list" placeholder="e.g. cough">
+        </label>
+        <label>
+            <span>Symptom 3</span>
+            <input name="symptom_3" list="symptom-list" placeholder="e.g. headache">
+        </label>
+    </div>
+
+    <datalist id="symptom-list">
+        {% for symptom in symptom_options %}
+        <option value="{{ symptom }}"></option>
+        {% endfor %}
+    </datalist>
+
+    <div class="quick-select">
+        <p>Or select from common symptoms:</p>
+        <div class="chips">
+            {% for symptom in symptom_options %}
+            <label class="chip">
+                <input type="checkbox" name="symptoms" value="{{ symptom }}">
+                <span>{{ symptom }}</span>
+            </label>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="notice">
+        <strong>Prototype notice:</strong> This demo estimates a result from symptom overlap. It is not a medical diagnosis.
+    </div>
+
+    <button class="primary-btn full" type="submit">Guess the Disease <span>→</span></button>
+</form>
+{% endblock %}

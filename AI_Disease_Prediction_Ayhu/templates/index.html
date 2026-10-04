@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Ayhu{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+        <div class="eyebrow">AI DISEASE PREDICTION</div>
+        <h1>Hi, welcome to <span>Ayhu🩺</span></h1>
+        <p class="handwritten-line">Let us know how beautiful your health is from the inside❤️</p>
+        <p class="subtext">Come with me to know to your<br><strong>Inner beauty</strong></p>
+        <a class="primary-btn" href="{{ url_for('symptoms') }}">Continue...🦋<span>→</span></a>
+    </div>
+    <div class="hero-card">
+        <div class="pulse-dot"></div>
+        <span>SMART HEALTH PROJECT</span>
+        <h3>Symptoms → Prediction → Precautions</h3>
+        <p>A user-friendly web interface designed to provide a simple and accessible experience for AI-based disease prediction.</p>
+    </div>
+</section>
+
+<section class="quote-strip">
+    <span>01</span>
+    <p>“Come with me to know your Inner beauty”</p>
+</section>
+{% endblock %}

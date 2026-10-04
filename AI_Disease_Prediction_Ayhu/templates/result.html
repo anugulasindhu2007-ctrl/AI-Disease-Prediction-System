@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Prediction | Ayhu{% endblock %}
+{% block content %}
+<section class="result-page">
+    <div class="eyebrow">GUESS THE DISEASE</div>
+    {% if error %}
+        <div class="error-box">{{ error }}</div>
+        <a class="primary-btn" href="{{ url_for('symptoms') }}">Back to Symptoms</a>
+    {% else %}
+        <div class="result-card">
+            <div class="result-icon">✦</div>
+            <p class="muted">Educational prototype result</p>
+            <h1>{{ disease }}</h1>
+            <div class="confidence">
+                <div class="confidence-top">
+                    <span>Symptom match</span>
+                    <strong>{{ confidence }}%</strong>
+                </div>
+                <div class="bar"><div style="width: {{ confidence }}%"></div></div>
+            </div>
+
+            {% if matched %}
+            <div class="matched">
+                <h3>Matched symptoms</h3>
+                <div class="chips">
+                    {% for item in matched %}
+                    <span class="static-chip">{{ item }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="precaution-box">
+                <span>PRECAUTION</span>
+                <p>{{ precaution }}</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a class="secondary-btn" href="{{ url_for('symptoms') }}">Try Again</a>
+            <a class="primary-btn" href="{{ url_for('precautions') }}">View Precautions →</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
